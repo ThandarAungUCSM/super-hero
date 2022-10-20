@@ -1,14 +1,23 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <!-- <Header /> -->
+    <router-view />
   </div>
 </template>
 
+<script>
+// import Header from "./components/header.vue";
+export default {
+  components: {
+    // Header,
+  },
+};
+</script>
+
 <style>
+body {
+  background: #f7fafa !important;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,17 +25,6 @@
   text-align: center;
   color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
+
+<!-- https://cli.vuejs.org/guide/cli-service.html -->

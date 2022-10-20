@@ -1,14 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
+import SearchView from '../views/SearchView.vue'
+import buySellHistoryView from '../views/buySellHistoryView.vue'
+import userWalletHistoryView from '../views/userWalletHistoryView.vue'
+import rewardHistoryView from '../views/rewardHistoryView.vue'
+import announcementManageView from '../views/announcementManageView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: SearchView
+  },
+  {
+    path: '/buySellHistory',
+    name: 'buySellHistory',
+    component: buySellHistoryView
+  },
+  {
+    path: '/userWalletHistory',
+    name: 'userWalletHistory',
+    component: userWalletHistoryView
+  },
+  {
+    path: '/rewardHistory',
+    name: 'rewardHistory',
+    component: rewardHistoryView
+  },
+  {
+    path: '/announcementManage',
+    name: 'announcementManage',
+    component: announcementManageView
   },
   {
     path: '/about',
@@ -17,7 +47,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+      return import(/* webpackChunkName: "about" */ '../views/buySellHistoryView.vue')
     }
   }
 ]
