@@ -2,7 +2,7 @@
   <div class="rewardHistory">
     <headerCom />
     <div>
-      <p class="data-query">玩家獲取獎勵記錄</p>
+      <p class="data-query">玩家獲取&消耗記錄</p>
     </div>
     <div class="search-div">
       <img alt="menu" src="../assets/images/search.png" class="search-img">
@@ -20,7 +20,7 @@
         查詢
       </div>
     </div>
-    <!-- <div v-if="retrieveResult == true">
+    <div v-if="retrieveResult == true">
       <el-table
         :data="tableData"
         stripe
@@ -30,31 +30,46 @@
         <el-table-column
           prop="uid"
           label="UID"
-          width="400">
+          width="370">
         </el-table-column>
         <el-table-column
           prop="time"
-          label="時間"
-          width="250">
+          label="獲得時間"
+          width="270">
         </el-table-column>
         <el-table-column
-          prop="buysell"
+          prop="type"
           label="類型"
           width="130">
           <template slot-scope="props">
-            <span v-if="props.row.buysell == '售出'" class="buyGreen">{{ props.row.buysell }}</span>
-            <span v-if="props.row.buysell == '購買'" class="sellRed">{{ props.row.buysell }}</span>
+            <span v-if="props.row.type == '獲得'" class="buyGreen">{{ props.row.type }}</span>
+            <span v-if="props.row.type == '消耗'" class="sellRed">{{ props.row.type }}</span>
           </template>
         </el-table-column>
         <el-table-column
-          prop="namewithlevel"
-          label="品項"
-          width="360">
+          prop="content"
+          label="內容"
+          width="250">
+          <template slot-scope="props">
+            <span v-if="props.row.content == '電池'" class="content1">{{ props.row.content }}</span>
+            <span v-else-if="props.row.content == 'A幣'" class="content2">{{ props.row.content }}</span>
+            <span v-else-if="props.row.content == '晶片'" class="content3">{{ props.row.content }}</span>
+            <span v-else class="content4">{{ props.row.content }}</span>
+          </template>
         </el-table-column>
         <el-table-column
-          prop="price"
-          label="價格"
-          width="300">
+          prop="quantity"
+          label="數量"
+          width="190">
+          <template slot-scope="props">
+            <span v-if="(props.row.quantity).replace(/\,/g,'') > 0" class="quantity1">{{ props.row.quantity }}</span>
+            <span v-else class="quantity2">{{ props.row.quantity }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="source"
+          label="來源"
+          width="230">
         </el-table-column>
       </el-table>
       <div v-if="tableData.length > 0">
@@ -70,7 +85,7 @@
           <p class="loadmore">尚無資料</p>
         </div>
       </div>
-    </div> -->
+    </div>
 
   </div>
 </template>
@@ -129,72 +144,82 @@ export default {
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '獲得',
+          content: '電池',
+          quantity: '2',
+          source: '通關獎勵'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '購買',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '獲得',
+          content: '裝備名稱(Lv.9999)',
+          quantity: '1',
+          source: '通關獎勵'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '購買',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '獲得',
+          content: 'A幣',
+          quantity: '1,000',
+          source: '拍賣場-販售'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '購買',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '消耗',
+          content: '裝備名稱(Lv.9999)',
+          quantity: '-1',
+          source: '拍賣場上架'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '消耗',
+          content: '電池',
+          quantity: '-20',
+          source: '英雄升級'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '消耗',
+          content: 'A幣',
+          quantity: '-99,999,999',
+          source: '拍賣場-購買'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '消耗',
+          content: '晶片',
+          quantity: '-300',
+          source: '裝備突破'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '消耗',
+          content: 'A幣',
+          quantity: '-99,999,999',
+          source: '拍賣場-購買'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '獲得',
+          content: '裝備名稱(Lv.9999)',
+          quantity: '1',
+          source: '拍賣場-下架'
         },
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
-          namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
-          price: '60,000'
+          type: '獲得',
+          content: '晶片',
+          quantity: '30',
+          source: '離線獎勵'
         }
       ],
       // tableData: []
@@ -269,10 +294,25 @@ export default {
   margin: 0 auto;
 }
 .buyGreen {
-  color: #2FB123;
+  color: #2BDE73;
+}
+.content1 {
+  color: #0CC41F;
+}
+.content2 {
+  color: #F26E23;
+}
+.content3 {
+  color: #9642D8;
+}
+.content4 {
+  color: #000;
 }
 .sellRed {
-  color: #E94F2E;
+  color: #F22361;
+}
+.quantity2 {
+  color: #F35A90;
 }
 </style>
 <style lang="scss">

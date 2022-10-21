@@ -15,7 +15,7 @@
         <div class="right-div">
           <p class="right-title">張貼中公告(僅供閱覽)</p>
           <div class="parent-area">
-            <textarea name="Text1" v-model="result2" cols="40" rows="5" class="multiline2"></textarea>
+            <p class="multiline2">{{result2}}</p>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       result1: "",
-      result2: "公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內容公告內4165161565165165132132132132131vds54vds23vds5v43ds5v43ds5v4ds3524v13d2sssssv45sdvsdvsd/,vjmnerpioubvjnert;ojhbnretf;’kgvbnerf’lkbvnf’lkbnfd’lbknfd’lkbnfd’lkbnfd’lkbnfd’lkbn’lfdknb’lfdknb’lfdkbn’ldfkbn’lfdkbn’erflkbgvm’;erfdlbvmp;regbvvrfefgb65re4gb68ref54bv96ref854bv96fet4b6ter5b41ter65b41tr685hb4tr685b416tr5b16165tr46854h641n61容",
+      result2: "",
     }
   },
   methods: {
@@ -129,21 +129,16 @@ export default {
       }
       .multiline2 {
         height: 550px;
-        border: none;
         font-weight: 400;
         font-size: 20px;
         color: #595959;
-        resize: none;
         overflow-y: scroll;
         background: #E6E6E6;
         width: 100%;
         padding-right: 1rem;
-      }
-      .multiline2:focus {
-        outline: none !important;
-        border:1px solid #E6E6E6;
-        // box-shadow: 0 0 10px #719ECE;
-        // box-shadow: 0 0 10px #FAFAFA;
+
+        word-break: break-word;
+        text-align: left;
         cursor: default;
       }
       .multiline2::-webkit-scrollbar {
