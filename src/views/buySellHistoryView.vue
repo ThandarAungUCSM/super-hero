@@ -2,7 +2,7 @@
   <div class="buySellHistory">
     <headerCom />
     <div>
-      <p class="data-query">玩家交易歷程查詢</p>
+      <p class="data-query">玩家拍賣場歷程</p>
     </div>
     <div class="search-div">
       <img alt="menu" src="../assets/images/search.png" class="search-img">

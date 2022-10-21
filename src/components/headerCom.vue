@@ -15,7 +15,7 @@
               <router-link @click.native="hide" to="/search" class="nav-link">玩家資料查詢</router-link>
               <router-link @click.native="hide" to="/buySellHistory" class="nav-link">玩家拍賣場歷程</router-link>
               <router-link @click.native="hide" to="/userWalletHistory" class="nav-link">玩家出入金記錄</router-link>
-              <router-link @click.native="hide" to="/rewardHistory" class="nav-link">玩家獲取獎勵記錄</router-link>
+              <router-link @click.native="hide" to="/rewardHistory" class="nav-link">玩家獲取&消耗記錄</router-link>
               <router-link @click.native="hide" to="/announcementManage" class="nav-link">公告管理</router-link>
             </nav>
           </div>
