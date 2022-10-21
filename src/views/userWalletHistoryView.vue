@@ -50,6 +50,10 @@
           prop="amount"
           label="額度"
           width="640">
+          <template slot-scope="props">
+            <span v-if="props.row.cashinout == '入金'">{{ props.row.amount }}</span>
+            <span v-if="props.row.cashinout == '出金'" class="sellPink">-{{ props.row.amount }}</span>
+          </template>
         </el-table-column>
       </el-table>
       <div v-if="tableData.length > 0">

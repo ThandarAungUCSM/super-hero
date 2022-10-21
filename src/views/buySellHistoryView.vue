@@ -55,6 +55,10 @@
           prop="price"
           label="價格"
           width="300">
+          <template slot-scope="props">
+            <span v-if="props.row.buysell == '售出'">{{ props.row.price }}</span>
+            <span v-if="props.row.buysell == '購買'" class="sellPink">-{{ props.row.price }}</span>
+          </template>
         </el-table-column>
       </el-table>
       <div v-if="tableData.length > 0">
@@ -178,7 +182,7 @@ export default {
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
+          buysell: '購買',
           namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
           price: '60,000'
         },
@@ -192,7 +196,7 @@ export default {
         {
           uid: '26652cwchjbewv744vds4vdvdsva',
           time: '202X-0X-0X,23:59:59',
-          buysell: '售出',
+          buysell: '購買',
           namewithlevel: '裝備名稱裝備名稱 (Lv.999999)',
           price: '60,000'
         }
@@ -276,6 +280,9 @@ export default {
 }
 </style>
 <style lang="scss">
+.sellPink {
+  color: #F35A90;
+}
 .el-table tr.header-buysell {
   th.el-table__cell {
     background-color: #698DAD !important;
